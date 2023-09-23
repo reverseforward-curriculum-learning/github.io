@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Abstract-to-Executable Trajectory Translation for One-Shot Task Generalization."
+    />
+    <meta name="keywords" content="Nerfies, D-NeRF, NeRF" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Reverse Forward Curriculum Learning for Extreme Demo Efficiency in RL
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./public/index.css" rel="stylesheet" />
+    <link href="./public/media.css" rel="stylesheet" />
+    <link href="./public/sidebars.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./public/js/base.js"></script>
+  </head>
+
+  <body>
+    <div class="sidebarsWrapper">
+      <div class="sidebars">
+        <a class="barWrapper" clear href="#abstract-a" id="bar2"
+          ><span>Abstract</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#tr2-a" id="bar3"
+          ><span>Trajectory Translation</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#results-a" id="bar4"
+          ><span>Results</span>
+          <div class="bar"></div
+        ></a>
+        <a class="barWrapper" clear href="#attn-a" id="bar5"
+          ><span>Attention Analysis</span>
+          <div class="bar"></div
+        ></a>
+      </div>
+    </div>
+    <main class="content">
+      <section class="heading">
+        <h1 class="title">
+          <span blue>RFCL: </span><span blue>R</span>everse <span blue>F</span>orward <span blue>C</span>urriculum <span blue>L</span>earning for Extreme Demo Efficiency in RL
+        </h1>
+        <!-- <h3>TODO</h3> -->
+        <section class="authors">
+          <ul>
+            <li>Anonymous Authors</li>
+          </ul>
+        </section>
+        <section class="links">
+          <ul>
+            <!-- <a href="TODO" rel="noreferrer" target="_blank">
+              <li>
+                <span class="icon"> <img src="./public/paper.svg" /> </span
+                ><span>Paper</span>
+              </li>
+            </a> -->
+            <!-- <a
+              href="TODO"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <li>
+                <span class="icon"> <img src="./public/video.svg" /> </span
+                ><span>Video</span>
+              </li>
+            </a> -->
+            <!-- <a
+              href="TODO"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <li>
+                <span class="icon">
+                  <img src="./public/github.svg" />
+                </span>
+                <span>Code</span>
+              </li>
+            </a> -->
+            <!-- <a><li>Video</li></a> -->
+          </ul>
+        </section>
+        <a class="anchor" id="abstract-a"></a>
+        <h2>Abstract</h2>
+        <p class="abstract">
+          Reinforcement learning (RL) presents a promising framework to
+          autonomously learn policies through environment interaction to solve
+          tasks, but often requires an infeasible amount of interaction data to
+          solve complex tasks from sparse rewards. One direction has been to
+          augment RL with offline data demonstrating how to solve the desired
+          task, but past work in this area often require a lot of high quality
+          demonstration data that is difficult to obtain especially for domains
+          such as robotics. Our approach consists of a two-stage training
+          process starting with a reverse curriculum followed by a forward
+          curriculum. Unique to our approach compared to past work is the
+          ability to efficiently leverage more than one demonstration
+          efficiently via a per-demonstration reverse curriculum generated via
+          state resets. The result of our reverse curriculum is an initial
+          policy that performs well on a narrow initial state distribution and
+          helps overcome difficult exploration problems. A forward curriculum is
+          then used to accelerate the training of the initial policy to perform
+          well on the full initial state distribution of the task and helps
+          improve demonstration and sample efficiency. We show how the
+          combination of a reverse curriculum and forward curriculum in our
+          method, RFCL, enables significant improvements on demonstration and
+          sample efficiency comparing against various state-of-the-art
+          learning-from-demonstration baselines, even solving previously
+          unsolvable tasks that require high precision and control.
+        </p>
+      </section>
+
+      <section class="head-media">
+        
+        <br />
+        <p class="caption">
+          TODO
+        </p>
+      </section>
+      <a class="anchor" id="tr2-a"></a>
+      <section class="details">
+        <h2>Reverse Forward Curriculum Learning</h2>
+        <p>TODO</p>
+        <a class="anchor" id="results-a"></a>
+        <h2>Results</h2>
+        <p>TODO</p>
+      </section>
+      <!-- <section class="citation">
+        <h2>Bibtex</h2>
+        <pre><code>TODO</code></pre>
+      </section> -->
+      <!-- <section class="acknowledgements">
+        <h2>Acknowledgements</h2>
+        <p>
+          TODO
+        </p>
+      </section> -->
+    </main>
+  </body>
+</html>
