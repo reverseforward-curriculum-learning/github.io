@@ -31,16 +31,12 @@
           ><span>Abstract</span>
           <div class="bar"></div
         ></a>
-        <a class="barWrapper" clear href="#tr2-a" id="bar3"
-          ><span>Trajectory Translation</span>
+        <a class="barWrapper" clear href="#rfcl-a" id="bar3"
+          ><span>RFCL</span>
           <div class="bar"></div
         ></a>
         <a class="barWrapper" clear href="#results-a" id="bar4"
           ><span>Results</span>
-          <div class="bar"></div
-        ></a>
-        <a class="barWrapper" clear href="#attn-a" id="bar5"
-          ><span>Attention Analysis</span>
           <div class="bar"></div
         ></a>
       </div>
@@ -48,7 +44,9 @@
     <main class="content">
       <section class="heading">
         <h1 class="title">
-          <span blue>RFCL: </span><span blue>R</span>everse <span blue>F</span>orward <span blue>C</span>urriculum <span blue>L</span>earning for Extreme Demo Efficiency in RL
+          <span blue>RFCL: </span><span blue>R</span>everse
+          <span blue>F</span>orward <span blue>C</span>urriculum
+          <span blue>L</span>earning for Extreme Demo Efficiency in RL
         </h1>
         <!-- <h3>TODO</h3> -->
         <section class="authors">
@@ -119,16 +117,74 @@
       </section>
 
       <section class="head-media">
-        
         <br />
-        <p class="caption">
-          TODO
-        </p>
+        <p class="caption">TODO</p>
       </section>
-      <a class="anchor" id="tr2-a"></a>
+      <a class="anchor" id="rfcl-a"></a>
       <section class="details">
         <h2>Reverse Forward Curriculum Learning</h2>
-        <p>TODO</p>
+
+        <p>
+          Below is a simple visual representation of the reverse forward
+          curriculums. The
+          <span style="color: #6096fe">blue arrows</span> represent the given
+          demonstration trajectories (2 in this example), starting from an
+          initial state and moving towards the goal marked by a
+          <span style="color: gold">gold star</span>. Area covered by
+          <span style="color: #48d681">dashed green lines</span> represents
+          states in which agent achieves high return from. Area
+          <span style="color: #ff6060">shaded in red</span> represents the most
+          frequently sampled initial states.
+        </p>
+        <!-- <img src="./public/videos/reverse-cl-demo.gif" width="50%" /> -->
+        <div class="media">
+          <video autoplay="" muted="" loop="" controls>
+            <source
+              src="./public/videos/reverse-cl-demo.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <video autoplay="" muted="" loop="" controls>
+            <source
+              src="./public/videos/forward-cl-demo.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <p>
+          On the left is the per-demonstration reverse curriculum, which starts
+          by prioritizing initial states from the demonstration that are close
+          to the goal, which are likely to yield sparse reward signals. The
+          reverse curriculum gradually increases the difficulty by initializing
+          the agent to earlier states in each demonstration which are farther
+          away from goal. The result is a specialist policy capable of solving
+          the desired task from a narrow initial state distribution marked by
+          the dashed green lines. Note that some demonstrations are
+          "reverse-solved" earlier and this arises as a result of our
+          per-demonstration reverse curriculum which through ablations is shown
+          to be more efficient than alternatives.
+        </p>
+        <p>
+          On the right is the forward curriculum that is a simple adaption of
+          Prioritized Level Replay, which always prioritizes initial states not
+          from the demonstration, but from the original task that have high
+          learning potential. Learning potential is computed as a sum of a score
+          and a staleness weight. The score we assign an initial state is either
+          1, 2 or 3 based on the current policy's performance starting from that
+          state. We assign 1 if the initial state frequently receives nonzero
+          return, 2 if the initial state always receives zero return, and 3 if
+          the initial state sometimes receives nonzero return. The staleness
+          score further ensures we occasionally revisit previously seen initial
+          states and update the score appropriately. By prioritizing initial
+          states with high score + staleness, we frequently sample initial
+          states that have "signs of life," and aggressively sample them until
+          the agent can capably achieve high return from these initial states.
+          In general we observe that inital states with signs of life tend to be
+          close to the set of states from whch the policy is already achieving
+          high return on. Over the course of training, the forward curriculum
+          enables the initially weak policy to efficiently generalize to a much
+          larger initial state distribution.
+        </p>
         <a class="anchor" id="results-a"></a>
         <h2>Results</h2>
         <p>TODO</p>
